@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <img src="img.png" alt="Interactive Calculator Screenshot" width="420"/>
+  <img src="img.png" alt="Interactive Calculator Screenshot" width="430"/>
 </p>
 
 <hr/>
