@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="page">
+      <div id="heading">
+        <h1>Calculator</h1>
+      </div>
+      <div class="cal-container">
+        <div>
+          <input
+            id="input-exp"
+            type="text"
+            placeholder="Enter Expression"
+            class="exp-holder"
+          />
+        </div>
+        <div>
+          <input id="result" type="text" placeholder="ANS" disabled />
+        </div>
+        <div id="btn-container">
+          <div class="row">
+            <div onclick="handleClickButton(this)" class="col-button">AC</div>
+            <div onclick="handleClickButton(this)" class="col-button">%</div>
+            <div onclick="handleClickButton(this)" class="col-button">*</div>
+            <div onclick="handleClickButton(this)" class="col-button">/</div>
+          </div>
+          <div class="row">
+            <div onclick="handleClickButton(this)" class="col-button">7</div>
+            <div onclick="handleClickButton(this)" class="col-button">8</div>
+            <div onclick="handleClickButton(this)" class="col-button">9</div>
+            <div onclick="handleClickButton(this)" class="col-button">+</div>
+          </div>
+          <div class="row">
+            <div onclick="handleClickButton(this)" class="col-button">4</div>
+            <div onclick="handleClickButton(this)" class="col-button">5</div>
+            <div onclick="handleClickButton(this)" class="col-button">6</div>
+            <div onclick="handleClickButton(this)" class="col-button">-</div>
+          </div>
+          <div class="row">
+            <div onclick="handleClickButton(this)" class="col-button">1</div>
+            <div onclick="handleClickButton(this)" class="col-button">2</div>
+            <div onclick="handleClickButton(this)" class="col-button">3</div>
+            <div onclick="handleClickButton(this)" class="col-button">=</div>
+          </div>
+          <div class="row">
+            <div onclick="handleClickButton(this)" class="col-button">000</div>
+            <div onclick="handleClickButton(this)" class="col-button">00</div>
+            <div onclick="handleClickButton(this)" class="col-button">0</div>
+            <div onclick="handleClickButton(this)" class="col-button">.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
