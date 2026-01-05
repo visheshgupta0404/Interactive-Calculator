@@ -1,8 +1,12 @@
 <h1 align="center">🧮✨ Interactive Calculator ✨🧮</h1>
 
 <p align="center">
-  <a href="https://github.com/visheshgupta0404/Interactive-Calculator">
-    🔗 View Project Repository
+  🌐 <a href="https://visheshgupta0404.github.io/Interactive-Calculator/" target="_blank">
+    Live Demo
+  </a>
+  &nbsp; | &nbsp;
+  📂 <a href="https://github.com/visheshgupta0404/Interactive-Calculator" target="_blank">
+    GitHub Repository
   </a>
 </p>
 
@@ -12,7 +16,7 @@
 </p>
 
 <p align="center">
-  <img src="web.png" alt="Interactive Calculator Screenshot" width="430"/>
+  <img src="screenshot.png" alt="Interactive Calculator Screenshot" width="420"/>
 </p>
 
 <hr/>
@@ -48,6 +52,28 @@
 
 <hr/>
 
+<h2 align="center">🌐 Live Deployment</h2>
+
+<p align="center">
+  This project is deployed using <b>GitHub Pages</b>, allowing users to access and use
+  the calculator directly from the browser without any setup.
+</p>
+
+<p align="center">
+  👉 <a href="https://visheshgupta0404.github.io/Interactive-Calculator/" target="_blank">
+    Click here to use the Interactive Calculator
+  </a>
+</p>
+
+<ul>
+  <li>🚀 No installation required</li>
+  <li>🌍 Accessible from any modern browser</li>
+  <li>📱 Works across different screen sizes</li>
+  <li>⚡ Fast load time via GitHub Pages</li>
+</ul>
+
+<hr/>
+
 <h2 align="center">🛠️ Tech Stack</h2>
 
 <ul>
@@ -72,7 +98,7 @@ Interactive-Calculator/
 
 <hr/>
 
-<h2 align="center">▶️ How to Run</h2>
+<h2 align="center">▶️ How to Run Locally</h2>
 
 <p align="center"><b>Step 1:</b> Clone the repository</p>
 
@@ -92,7 +118,7 @@ git clone https://github.com/visheshgupta0404/Interactive-Calculator.git
   <li>Implementing interactive UI behavior using CSS transitions</li>
   <li>Managing user input through buttons and input fields</li>
   <li>Evaluating mathematical expressions in JavaScript</li>
-  <li>Writing clean, modular, and reusable frontend code</li>
+  <li>Deploying projects using GitHub Pages</li>
 </ul>
 
 <hr/>
@@ -114,8 +140,10 @@ git clone https://github.com/visheshgupta0404/Interactive-Calculator.git
 <p align="center">
   <b>Vishesh Gupta</b><br/>
   Frontend Development Enthusiast<br/><br/>
-  🔗 <a href="https://github.com/visheshgupta0404">GitHub Profile</a><br/>
-  📂 <a href="https://github.com/visheshgupta0404/Interactive-Calculator">Project Repository</a>
+  🔗 <a href="https://github.com/visheshgupta0404" target="_blank">GitHub Profile</a><br/>
+  📂 <a href="https://github.com/visheshgupta0404/Interactive-Calculator" target="_blank">
+    Project Repository
+  </a>
 </p>
 
 <hr/>
