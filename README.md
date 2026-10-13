@@ -1,155 +1,70 @@
-<h1 align="center">🧮✨ Interactive Calculator ✨🧮</h1>
+# Everyday — Interactive Calculator
 
-<p align="center">
-  🌐 <a href="https://visheshgupta0404.github.io/Interactive-Calculator/" target="_blank">
-    Live Demo
-  </a>
-  &nbsp; | &nbsp;
-  📂 <a href="https://github.com/visheshgupta0404/Interactive-Calculator" target="_blank">
-    GitHub Repository
-  </a>
-</p>
+A responsive, accessible calculator and practical maths toolkit built with HTML, CSS, and dependency-free JavaScript.
 
-<p align="center">
-  <b>HTML • CSS • Vanilla JavaScript</b><br/>
-  A modern, interactive calculator with smooth UI animations and full expression support
-</p>
+[Use the live calculator](https://visheshgupta0404.github.io/Interactive-Calculator/)
 
-<p align="center">
-  <img src="screenshot.png" alt="Interactive Calculator Screenshot" width="420"/>
-</p>
+## What's included
 
-<hr/>
+- Editable expressions with live previews, keyboard input, parentheses, powers, percentages, sign toggle, backspace, and the previous answer.
+- A dedicated expression parser: no `eval` or dynamic code execution. Incomplete expressions and division by zero produce useful messages.
+- Up to 50 saved calculations in local browser storage. Select a history entry to reuse its expression, or clear history at any time.
+- Copy result, light/dark themes, system theme detection, visible focus indicators, and responsive layouts.
+- Bill splitting with optional tips and currency formatting (INR, USD, EUR, GBP).
+- Discount calculation with tax applied after the discount.
+- Length, weight, and temperature conversion, with validation for absolute zero.
 
-<h2 align="center">🎯 About the Project</h2>
+No account, analytics, external fonts, APIs, or runtime dependencies. History and theme preferences stay on the device; if storage is unavailable, calculations still work and history is kept for the current session.
 
-<p align="center">
-  The <b>Interactive Calculator</b> is a fully functional, browser-based calculator built
-  using <b>Vanilla JavaScript</b>. It accurately evaluates mathematical expressions while
-  providing a smooth and visually appealing user experience through hover animations
-  and transitions.
-</p>
+## Run locally
 
-<p align="center">
-  ✨ <b>Mission:</b> Build interactive projects that strengthen core JavaScript concepts<br/>
-  🔥 <b>Approach:</b> Learn → Build → Optimize → Showcase
-</p>
+Clone this repository, then open `index.html` in a modern browser. For clipboard support, use localhost or HTTPS:
 
-<hr/>
+```sh
+python -m http.server 8000
+```
 
-<h2 align="center">🚀 Key Features</h2>
+Open http://localhost:8000.
 
-<ul>
-  <li>🧠 Solves <b>any valid mathematical expression</b></li>
-  <li>🔢 Fully functional calculator buttons</li>
-  <li>⌨️ Supports both input field and button-based input</li>
-  <li>🎯 Accurate real-time calculation and evaluation</li>
-  <li>🎨 Smooth hover effects on all buttons</li>
-  <li>📈 Button scale animation (<code>scale: 1.2</code>) on hover</li>
-  <li>🌈 Dynamic color changes for better UI feedback</li>
-  <li>⚡ Clean, responsive, and user-friendly interface</li>
-</ul>
+## Keyboard and expression guide
 
-<hr/>
+Type directly into the expression field. `Enter` or `=` calculates and saves; `Escape` clears. Native cursor movement, selection, paste, and backspace work in the field. Keypad buttons insert at the cursor. After a completed calculation, an operator continues from its result, while a digit starts a new expression. `Ans` inserts the last calculated answer for the current session.
 
-<h2 align="center">🌐 Live Deployment</h2>
+| Expression | Result | Meaning |
+| --- | --- | --- |
+| `2 + 3 * 4` | 14 | Multiplication before addition |
+| `(2 + 3) * 4` | 20 | Parentheses first |
+| `200 + 10%` | 220 | Add 10% of the left value |
+| `200 - 10%` | 180 | Subtract 10% of the left value |
+| `200 * 10%` | 20 | Multiply by 0.1 |
+| `50%` | 0.5 | Standalone percentage |
+| `2^3^2` | 512 | Powers associate from the right |
+| `-2^2` | -4 | Powers before unary minus |
 
-<p align="center">
-  This project is deployed using <b>GitHub Pages</b>, allowing users to access and use
-  the calculator directly from the browser without any setup.
-</p>
+Explicit multiplication is required: use `2*(3+4)`, not `2(3+4)`. A directly percentage-marked operand on the right of `+` or `-` is relative to the running left value. A compound product, such as `200+10%*2`, follows ordinary arithmetic (200.2).
 
-<p align="center">
-  👉 <a href="https://visheshgupta0404.github.io/Interactive-Calculator/" target="_blank">
-    Click here to use the Interactive Calculator
-  </a>
-</p>
+Calculations use JavaScript floating-point numbers and results are normalized to 12 significant digits for everyday use. Currency values are formatted to the currency's precision; rounded per-person amounts may not sum exactly to the bill. This is not an arbitrary-precision accounting tool. Currency selection changes formatting only; it does not convert exchange rates.
 
-<ul>
-  <li>🚀 No installation required</li>
-  <li>🌍 Accessible from any modern browser</li>
-  <li>📱 Works across different screen sizes</li>
-  <li>⚡ Fast load time via GitHub Pages</li>
-</ul>
+## Development and checks
 
-<hr/>
+Node.js 20 or later is required only for development checks. No package installation is needed.
 
-<h2 align="center">🛠️ Tech Stack</h2>
+```sh
+npm run check
+npm test
+```
 
-<ul>
-  <li><b>HTML</b> – Structure of the calculator</li>
-  <li><b>CSS</b> – Styling, transitions, and hover effects</li>
-  <li><b>JavaScript (Vanilla JS)</b> – Logic, input handling, and expression evaluation</li>
-</ul>
+The tests cover precedence, percentages, decimals, scientific notation, unsafe/invalid input rejection, division by zero, bill splits, discounts, and unit conversions. GitHub Actions runs checks before deploying only the public assets to GitHub Pages on a successful `main` push. GitHub Pages must be configured to use GitHub Actions in the repository settings.
 
-<hr/>
+## Files
 
-<h2 align="center">📂 Project Structure</h2>
+| File | Responsibility |
+| --- | --- |
+| `index.html` | Semantic interface and tool forms |
+| `style.css` | Responsive layout and theme tokens |
+| `calculator.js` | Pure parser and tool calculations |
+| `script.js` | UI state, history, persistence, and interactions |
+| `tests/calculator.test.js` | Calculation regression tests |
+| `.github/workflows/static.yml` | Validation and Pages deployment |
 
-<pre>
-Interactive-Calculator/
-│
-├── index.html
-├── style.css
-├── script.js
-├── screenshot.png
-└── README.md
-</pre>
-
-<hr/>
-
-<h2 align="center">▶️ How to Run Locally</h2>
-
-<p align="center"><b>Step 1:</b> Clone the repository</p>
-
-<pre>
-git clone https://github.com/visheshgupta0404/Interactive-Calculator.git
-</pre>
-
-<p align="center"><b>Step 2:</b> Open <code>index.html</code> in any modern browser</p>
-<p align="center"><b>Step 3:</b> Start calculating 🚀</p>
-
-<hr/>
-
-<h2 align="center">🌱 Learning Outcomes</h2>
-
-<ul>
-  <li>Efficient handling of DOM events</li>
-  <li>Implementing interactive UI behavior using CSS transitions</li>
-  <li>Managing user input through buttons and input fields</li>
-  <li>Evaluating mathematical expressions in JavaScript</li>
-  <li>Deploying projects using GitHub Pages</li>
-</ul>
-
-<hr/>
-
-<h2 align="center">🔮 Future Enhancements</h2>
-
-<ul>
-  <li>Add calculation history panel</li>
-  <li>Enable keyboard input support</li>
-  <li>Introduce scientific calculator features</li>
-  <li>Add dark / light theme toggle</li>
-  <li>Improve mobile responsiveness</li>
-</ul>
-
-<hr/>
-
-<h2 align="center">👤 Author</h2>
-
-<p align="center">
-  <b>Vishesh Gupta</b><br/>
-  Frontend Development Enthusiast<br/><br/>
-  🔗 <a href="https://github.com/visheshgupta0404" target="_blank">GitHub Profile</a><br/>
-  📂 <a href="https://github.com/visheshgupta0404/Interactive-Calculator" target="_blank">
-    Project Repository
-  </a>
-</p>
-
-<hr/>
-
-<h2 align="center">⭐ Show Your Support</h2>
-
-<p align="center">
-  If you like this project, consider giving it a ⭐ on GitHub — it really helps!
-</p>
+Built by [Vishesh Gupta](https://github.com/visheshgupta0404).

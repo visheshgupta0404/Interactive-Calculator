@@ -1,62 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <div class="page">
-      <div id="heading">
-        <h1>Calculator</h1>
-      </div>
-      <div class="cal-container">
-        <div>
-          <input
-            id="input-exp"
-            type="text"
-            placeholder="Enter Expression"
-            class="exp-holder"
-          />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A thoughtful everyday calculator. Calculate expressions, split bills, check discounts, convert units, and keep your history locally.">
+  <meta name="theme-color" content="#f7f8fa">
+  <title>Everyday — Interactive Calculator</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="calculator.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="./"><span class="brand-icon" aria-hidden="true">＝</span>everyday<span class="brand-dot">.</span></a><div class="top-actions"><span class="local-badge"><i></i> All calculations stay on your device</span><button id="theme-toggle" class="icon-button" aria-label="Switch to dark theme">◐</button></div></header>
+  <main>
+    <div class="intro"><div><p class="eyebrow">A LITTLE CLARITY, EVERY DAY</p><h1>Make the numbers work.</h1><p>From quick sums to splitting dinner. Your everyday maths, simplified.</p></div><span class="edition">01 / THE ESSENTIALS</span></div>
+    <div class="workspace">
+      <section class="calculator-card" aria-labelledby="calculator-title">
+        <div class="card-heading"><h2 id="calculator-title"><span class="small-symbol">▦</span> Calculator</h2><span class="chip">STANDARD</span></div>
+        <div class="display"><label for="expression">YOUR EXPRESSION</label><input id="expression" autocomplete="off" spellcheck="false" inputmode="decimal" placeholder="0" maxlength="500" aria-describedby="expression-help"><output id="result" aria-live="polite">0</output><div class="display-bottom"><span id="expression-help">Type an expression or use the keypad</span><button id="copy-result" class="text-button">Copy result ↗</button></div></div>
+        <div class="keypad" aria-label="Calculator keypad">
+          <button data-action="clear" class="utility">AC</button><button data-action="sign" class="utility" aria-label="Toggle sign">±</button><button data-value="%" class="utility" aria-label="Percent">%</button><button data-value="/" class="operator" aria-label="Divide">÷</button>
+          <button data-value="7">7</button><button data-value="8">8</button><button data-value="9">9</button><button data-value="*" class="operator" aria-label="Multiply">×</button>
+          <button data-value="4">4</button><button data-value="5">5</button><button data-value="6">6</button><button data-value="-" class="operator" aria-label="Subtract">−</button>
+          <button data-value="1">1</button><button data-value="2">2</button><button data-value="3">3</button><button data-value="+" class="operator" aria-label="Add">+</button>
+          <button data-value="0">0</button><button data-value=".">.</button><button data-action="backspace" aria-label="Delete last character">⌫</button><button data-action="equals" class="equals" aria-label="Calculate">=</button>
         </div>
-        <div>
-          <input id="result" type="text" placeholder="ANS" disabled />
-        </div>
-        <div id="btn-container">
-          <div class="row">
-            <div onclick="handleClickButton(this)" class="col-button">AC</div>
-            <div onclick="handleClickButton(this)" class="col-button">%</div>
-            <div onclick="handleClickButton(this)" class="col-button">*</div>
-            <div onclick="handleClickButton(this)" class="col-button">/</div>
-          </div>
-          <div class="row">
-            <div onclick="handleClickButton(this)" class="col-button">7</div>
-            <div onclick="handleClickButton(this)" class="col-button">8</div>
-            <div onclick="handleClickButton(this)" class="col-button">9</div>
-            <div onclick="handleClickButton(this)" class="col-button">+</div>
-          </div>
-          <div class="row">
-            <div onclick="handleClickButton(this)" class="col-button">4</div>
-            <div onclick="handleClickButton(this)" class="col-button">5</div>
-            <div onclick="handleClickButton(this)" class="col-button">6</div>
-            <div onclick="handleClickButton(this)" class="col-button">-</div>
-          </div>
-          <div class="row">
-            <div onclick="handleClickButton(this)" class="col-button">1</div>
-            <div onclick="handleClickButton(this)" class="col-button">2</div>
-            <div onclick="handleClickButton(this)" class="col-button">3</div>
-            <div onclick="handleClickButton(this)" class="col-button">=</div>
-          </div>
-          <div class="row">
-            <div onclick="handleClickButton(this)" class="col-button">000</div>
-            <div onclick="handleClickButton(this)" class="col-button">00</div>
-            <div onclick="handleClickButton(this)" class="col-button">0</div>
-            <div onclick="handleClickButton(this)" class="col-button">.</div>
-          </div>
-        </div>
-      </div>
+        <div class="extras"><button data-value="(">(</button><button data-value=")">)</button><button data-value="^2" aria-label="Square">x²</button><button data-action="answer">Ans</button><span><kbd>Enter</kbd> to calculate · <kbd>Esc</kbd> to clear</span></div>
+      </section>
+      <aside class="history-card" aria-labelledby="history-title"><div class="card-heading"><h2 id="history-title">↺ &nbsp;History</h2><button id="clear-history" class="text-button">Clear all</button></div><p class="muted history-note">Your recent calculations, ready to reuse.</p><div id="history-list"></div><div class="history-footer"><span class="privacy-dot"></span> Saved locally. Only you can see it.</div></aside>
     </div>
-  </body>
+    <section class="tools-section" aria-labelledby="tools-title"><div class="tools-heading"><div><p class="eyebrow">BEYOND THE BASICS</p><h2 id="tools-title">Life happens. Do the maths.</h2></div><p>Small tools for real-world decisions.</p></div>
+      <div class="tool-tabs" role="tablist" aria-label="Everyday tools"><button role="tab" id="tab-bill" aria-controls="panel-bill" aria-selected="true" data-tool="bill">↗ &nbsp; Split a bill</button><button role="tab" id="tab-discount" aria-controls="panel-discount" aria-selected="false" tabindex="-1" data-tool="discount">% &nbsp; Discount & tax</button><button role="tab" id="tab-convert" aria-controls="panel-convert" aria-selected="false" tabindex="-1" data-tool="convert">⇄ &nbsp; Unit converter</button></div>
+      <div class="tool-panel" role="tabpanel" id="panel-bill" aria-labelledby="tab-bill"><div class="tool-description"><h3>Good food. Fair shares.</h3><p>Add the bill, choose a tip, and split it evenly.</p></div><form id="bill-form"><label>Bill amount<input id="bill-amount" type="number" min="0" step="any" value="" placeholder="0.00" required></label><label>Tip (%)<input id="bill-tip" type="number" min="0" max="100" step="any" value="10" required></label><label>People<input id="bill-people" type="number" min="1" step="1" value="2" required></label><label>Currency<select id="currency"><option value="INR">INR ₹</option><option value="USD">USD $</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option></select></label></form><div class="tool-output"><span>PER PERSON</span><output id="bill-result" aria-live="polite">—</output><p id="bill-detail">Enter a bill to get started.</p></div></div>
+      <div class="tool-panel" role="tabpanel" id="panel-discount" aria-labelledby="tab-discount" hidden><div class="tool-description"><h3>Know the final price.</h3><p>Apply a discount, then add tax to the reduced price.</p></div><form id="discount-form"><label>Original price<input id="price" type="number" min="0" step="any" placeholder="0.00" required></label><label>Discount (%)<input id="discount" type="number" min="0" max="100" step="any" value="20" required></label><label>Tax (%)<input id="tax" type="number" min="0" max="100" step="any" value="0" required></label></form><div class="tool-output"><span>FINAL PRICE</span><output id="discount-result" aria-live="polite">—</output><p id="discount-detail">Uses your selected bill currency.</p></div></div>
+      <div class="tool-panel" role="tabpanel" id="panel-convert" aria-labelledby="tab-convert" hidden><div class="tool-description"><h3>A different unit. Same answer.</h3><p>Convert length, weight, or temperature instantly.</p></div><form id="convert-form"><label>Category<select id="category"><option value="length">Length</option><option value="weight">Weight</option><option value="temperature">Temperature</option></select></label><label>Value<input id="unit-value" type="number" step="any" placeholder="0" required></label><label>From<select id="unit-from"></select></label><label>To<select id="unit-to"></select></label></form><div class="tool-output"><span>CONVERTED VALUE</span><output id="convert-result" aria-live="polite">—</output><p id="convert-detail">Choose your units and enter a value.</p></div></div>
+    </section>
+    <footer><span>everyday. <span class="muted">Less friction. More clarity.</span></span><a href="https://github.com/visheshgupta0404/Interactive-Calculator">Made by Vishesh Gupta ↗</a></footer>
+  </main><div id="toast" role="status" class="toast" hidden></div>
+</body>
 </html>
