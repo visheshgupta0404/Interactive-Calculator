@@ -1,4 +1,4 @@
-# Everyday — Interactive Calculator
+# Interactive Calculator
 
 A responsive, accessible calculator and practical maths toolkit built with HTML, CSS, and dependency-free JavaScript.
 
