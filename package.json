@@ -1,0 +1,8 @@
+{
+  "name": "interactive-calculator",
+  "version": "2.0.0",
+  "private": true,
+  "description": "An accessible everyday calculator and practical maths toolkit",
+  "scripts": { "test": "node --test tests/calculator.test.js", "check": "node --check calculator.js && node --check script.js" },
+  "engines": { "node": ">=20" }
+}
